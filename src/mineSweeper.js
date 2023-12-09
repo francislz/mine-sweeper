@@ -3,9 +3,9 @@ function createBoard(dimentions) {
   return Array.from({ length: dimentions }, () => [...columns]);
 }
 
-function createSquare() {
+function createSquare({ hasBomb }) {
   return {
-    bomb: true,
+    bomb: hasBomb,
   };
 }
 
