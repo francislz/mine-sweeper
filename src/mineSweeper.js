@@ -17,6 +17,12 @@ function addBombsToBoard(bombs, boardDimentions) {
   if (bombs.length >= boardDimentions * boardDimentions) {
     throw new Error('Invalid quantity of bombs');
   }
+  const board = createBoard(boardDimentions);
+  bombs.forEach((bomb) => {
+    const [row, column] = bomb;
+    board[row][column] = createSquare({ hasBomb: true });
+  });
+  return board;
 }
 
 module.exports = {

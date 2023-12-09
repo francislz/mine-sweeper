@@ -68,17 +68,17 @@
 
 ### Pomodoro 4 🍅
 
-- 🚧 Implement logic to add bombs to the board (US 3)
+- ✅ Implement logic to add bombs to the board (US 3)
 
-  - ⚠ UAT 3.2:
+  - ✅ UAT 3.2:
     GIVEN that the game has started
     AND the board was already created
     WHEN I have the position of the bombs
     THEN I should have the board updated with the bombs positions
 
-- ⚠ Implement logic for user to clear a square without bombs
+- 🚧 Implement logic for user to clear a square without bombs
 
-  - ⚠ UAT 4.1:
+  - 🚧 UAT 4.1:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
