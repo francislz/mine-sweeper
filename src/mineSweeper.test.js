@@ -11,4 +11,12 @@ describe('createBoard', () => {
       ['', ''],
     ]);
   });
+
+  it('should create an 3x3 board with empty squares', () => {
+    expect(createBoard(3)).toEqual([
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', ''],
+    ]);
+  });
 });
