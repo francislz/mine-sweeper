@@ -64,4 +64,20 @@ describe('adding bombs to the board', () => {
     const boardDimentions = 2;
     expect(() => addBombsToBoard(bombs, boardDimentions)).not.toThrow();
   });
+
+  it('add the bombs provided to an empty board', () => {
+    const emptySquare = createSquare();
+    const bombSquare = createSquare({ hasBomb: true });
+    const bombs = [
+      [0, 0],
+      [1, 1],
+      [2, 2],
+    ];
+    const boardDimentions = 3;
+    expect(addBombsToBoard(bombs, boardDimentions)).toEqual([
+      [bombSquare, emptySquare, emptySquare],
+      [emptySquare, bombSquare, emptySquare],
+      [emptySquare, emptySquare, bombSquare],
+    ]);
+  });
 });
