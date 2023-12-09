@@ -1,4 +1,10 @@
-function createBoard() {
+function createBoard(dimentions) {
+  if (dimentions === 2) {
+    return [
+      ['', ''],
+      ['', ''],
+    ];
+  }
   return [['']];
 }
 

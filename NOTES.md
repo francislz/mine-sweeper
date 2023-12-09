@@ -23,11 +23,11 @@
     GIVEN that the game has started
     THEN I should create a new empty board with size of 1x1
 
-  - 🚧 UAT 1.2:
+  - ✅ UAT 1.2:
     GIVEN that the game has started
     THEN I should create a new empty board with size of 2x2
 
-  - ⚠ UAT 1.3:
+  - 🚧 UAT 1.3:
     GIVEN that the game has started
     THEN I should create a new empty board with size of 3x3
 
