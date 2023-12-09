@@ -1,31 +1,33 @@
 const { createBoard, createSquare } = require('./mineSweeper');
 
 describe('createBoard', () => {
+  const emptySquare = createSquare();
+
   it('should create an 1x1 board with empty squares', () => {
-    expect(createBoard(1)).toEqual([['']]);
+    expect(createBoard(1)).toEqual([[emptySquare]]);
   });
 
   it('should create an 2x2 board with empty squares', () => {
     expect(createBoard(2)).toEqual([
-      ['', ''],
-      ['', ''],
+      [emptySquare, emptySquare],
+      [emptySquare, emptySquare],
     ]);
   });
 
   it('should create an 3x3 board with empty squares', () => {
     expect(createBoard(3)).toEqual([
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', ''],
+      [emptySquare, emptySquare, emptySquare],
+      [emptySquare, emptySquare, emptySquare],
+      [emptySquare, emptySquare, emptySquare],
     ]);
   });
 
   it('should create an 4x4 board with empty squares', () => {
     expect(createBoard(4)).toEqual([
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
+      [emptySquare, emptySquare, emptySquare, emptySquare],
+      [emptySquare, emptySquare, emptySquare, emptySquare],
+      [emptySquare, emptySquare, emptySquare, emptySquare],
+      [emptySquare, emptySquare, emptySquare, emptySquare],
     ]);
   });
 });

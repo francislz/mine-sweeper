@@ -41,11 +41,11 @@
     AND the square is uncleared
     THEN the square should have either a BOMB or be EMPTY
 
-- 🚧 Refactor: use createSquare function to generate the initial board
+- ✅ Refactor: use createSquare function to generate the initial board
 
-- ⚠ Implement logic to add bombs to the board (US 3)
+- 🚧 Implement logic to add bombs to the board (US 3)
 
-  - ⚠ UAT 3.1:
+  - 🚧 UAT 3.1:
     GIVEN that the game has started
     AND the board was already created
     THEN the number of bombs should be limited to the board size (which is 9 in this case)
