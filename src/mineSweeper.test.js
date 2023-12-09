@@ -4,4 +4,11 @@ describe('createBoard', () => {
   it('should create an 1x1 board with empty squares', () => {
     expect(createBoard()).toEqual([['']]);
   });
+
+  it('should create an 2x2 board with empty squares', () => {
+    expect(createBoard(2)).toEqual([
+      ['', ''],
+      ['', ''],
+    ]);
+  });
 });
