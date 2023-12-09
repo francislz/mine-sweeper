@@ -1,4 +1,4 @@
-const { createBoard } = require('./mineSweeper');
+const { createBoard, createSquare } = require('./mineSweeper');
 
 describe('createBoard', () => {
   it('should create an 1x1 board with empty squares', () => {
@@ -27,5 +27,13 @@ describe('createBoard', () => {
       ['', '', '', ''],
       ['', '', '', ''],
     ]);
+  });
+});
+
+describe('creating squares for the board', () => {
+  it('should contain a bomb when the game informs this square is a bomb', () => {
+    expect(createSquare({ hasBomb: true })).toEqual({
+      bomb: true,
+    });
   });
 });

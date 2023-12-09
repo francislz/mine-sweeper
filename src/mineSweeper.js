@@ -3,6 +3,11 @@ function createBoard(dimentions) {
   return Array.from({ length: dimentions }, () => [...columns]);
 }
 
+function createSquare() {
+  return {};
+}
+
 module.exports = {
   createBoard,
+  createSquare,
 };
