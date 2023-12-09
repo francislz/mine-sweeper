@@ -5,6 +5,15 @@ function createBoard(dimentions) {
       ['', ''],
     ];
   }
+
+  if (dimentions === 3) {
+    return [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', ''],
+    ];
+  }
+
   return [['']];
 }
 
