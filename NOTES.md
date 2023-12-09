@@ -33,13 +33,15 @@
 
 ### Pomodoro 3 🍅
 
-- 🚧 Implement logic to check the board square (US 2)
+- ✅ Implement logic to check the board square (US 2)
 
-  - 🚧 UAT 2.1:
+  - ✅ UAT 2.1:
     GIVEN that the game has started,
     WHEN the user chooses a square to clear
     AND the square is uncleared
     THEN the square should have either a BOMB or be EMPTY
+
+- 🚧 Refactor: use createSquare function to generate the initial board
 
 - ⚠ Implement logic to add bombs to the board (US 3)
 
