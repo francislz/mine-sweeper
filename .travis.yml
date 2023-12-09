@@ -1,0 +1,27 @@
+os: linux
+language: node_js
+node_js:
+  - lts/*
+dist: focal
+install:
+  - npm i
+cache:
+  directories:
+    - "~/.npm"
+    - "~/.cache"
+  npm: true
+stages:
+  - name: Quality checks
+  - name: Unit test
+jobs:
+  include:
+    - stage: Quality checks
+      script:
+        - npm run prettier
+        - npm run eslint
+      name: Quality checks
+    - stage: Unit test
+      script:
+        - npm test
+      name: Unit test
+      env: Unit test
