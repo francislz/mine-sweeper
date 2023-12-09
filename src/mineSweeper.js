@@ -13,7 +13,14 @@ function createSquare({ hasBomb } = emptySquare) {
   };
 }
 
+function addBombsToBoard(bombs, boardDimentions) {
+  if (bombs.length >= boardDimentions * boardDimentions) {
+    throw new Error('Invalid quantity of bombs');
+  }
+}
+
 module.exports = {
   createBoard,
   createSquare,
+  addBombsToBoard,
 };

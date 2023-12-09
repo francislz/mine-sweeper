@@ -1,4 +1,4 @@
-const { createBoard, createSquare } = require('./mineSweeper');
+const { createBoard, createSquare, addBombsToBoard } = require('./mineSweeper');
 
 describe('createBoard', () => {
   const emptySquare = createSquare();
@@ -43,5 +43,17 @@ describe('creating squares for the board', () => {
     expect(createSquare({ hasBomb: false })).toEqual({
       bomb: false,
     });
+  });
+});
+
+describe('adding bombs to the board', () => {
+  it('should error when the amount of bombs is greater of equal the total of squares', () => {
+    const bombs = [
+      [0, 0],
+      [1, 0],
+      [1, 1],
+      [0, 1],
+    ];
+    expect(() => addBombsToBoard(bombs)).toThrow('Invalid quantity of bombs');
   });
 });
