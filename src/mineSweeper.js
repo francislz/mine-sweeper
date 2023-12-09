@@ -1,5 +1,5 @@
 function createBoard() {
-  return 'empty';
+  return [['']];
 }
 
 module.exports = {

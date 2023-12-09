@@ -19,11 +19,11 @@
 
 - 🚧 Implement board creation with 1x1 squares (US 1 - Board creation)
 
-  - 🚧 UAT 1.1:
+  - ✅ UAT 1.1:
     GIVEN that the game has started
     THEN I should create a new empty board with size of 1x1
 
-  - ⚠ UAT 1.2:
+  - 🚧 UAT 1.2:
     GIVEN that the game has started
     THEN I should create a new empty board with size of 2x2
 
