@@ -4,7 +4,9 @@ function createBoard(dimentions) {
 }
 
 function createSquare() {
-  return {};
+  return {
+    bomb: true,
+  };
 }
 
 module.exports = {
