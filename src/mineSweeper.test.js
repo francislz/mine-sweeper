@@ -1,7 +1,7 @@
 const { createBoard } = require('./mineSweeper');
 
 describe('createBoard', () => {
-  it('should return createBoard', () => {
-    expect(createBoard()).toBe('empty');
+  it('should create an 1x1 board with empty squares', () => {
+    expect(createBoard()).toEqual([['']]);
   });
 });
