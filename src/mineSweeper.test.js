@@ -1,6 +1,6 @@
 const { createBoard, createSquare, addBombsToBoard, clearBoardSquare } = require('./mineSweeper');
-const emptySquare = createSquare();
-const bombSquare = createSquare({ hasBomb: true });
+const emptySquare = createSquare({ hasBomb: false, isCleared: false });
+const bombSquare = createSquare({ hasBomb: true, isCleared: false });
 
 describe('createBoard', () => {
   const emptySquare = createSquare();
@@ -36,15 +36,11 @@ describe('createBoard', () => {
 
 describe('creating squares for the board', () => {
   it('should contain a bomb when the game informs this square is a bomb', () => {
-    expect(createSquare({ hasBomb: true })).toEqual({
-      bomb: true,
-    });
+    expect(createSquare({ hasBomb: true, isCleared: false })).toEqual(bombSquare);
   });
 
   it('should not contaiin a bomb when the game informs this square is not a bomb', () => {
-    expect(createSquare({ hasBomb: false })).toEqual({
-      bomb: false,
-    });
+    expect(createSquare({ hasBomb: false, isCleared: false })).toEqual(emptySquare);
   });
 });
 
@@ -90,8 +86,8 @@ describe('clearing squares without bombs', () => {
     const clearedSquare = createSquare({ isCleared: true, hasBomb: false });
 
     expect(newBoard).toEqual([
-      [bombSquare, emptySquare, emptySquare],
-      [emptySquare, clearedSquare, emptySquare],
+      [bombSquare, clearedSquare, emptySquare],
+      [emptySquare, emptySquare, emptySquare],
       [emptySquare, emptySquare, emptySquare],
     ]);
   });

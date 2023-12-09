@@ -1,5 +1,6 @@
 const emptySquare = {
   hasBomb: false,
+  isCleared: false,
 };
 
 function createBoard(dimentions) {
@@ -7,9 +8,11 @@ function createBoard(dimentions) {
   return Array.from({ length: dimentions }, () => [...columns]);
 }
 
-function createSquare({ hasBomb } = emptySquare) {
+function createSquare({ hasBomb, isCleared } = emptySquare) {
   return {
     bomb: hasBomb,
+    visible: isCleared,
+    numberOfNeighborBombs: 0,
   };
 }
 
@@ -20,12 +23,16 @@ function addBombsToBoard(bombs, boardDimentions) {
   const board = createBoard(boardDimentions);
   bombs.forEach((bomb) => {
     const [row, column] = bomb;
-    board[row][column] = createSquare({ hasBomb: true });
+    board[row][column] = createSquare({ hasBomb: true, isCleared: false });
   });
   return board;
 }
 
-function clearBoardSquare() {}
+function clearBoardSquare(board, squareToClear) {
+  const { row, column } = squareToClear;
+  board[row][column] = createSquare({ hasBomb: false, isCleared: true });
+  return board;
+}
 
 module.exports = {
   createBoard,

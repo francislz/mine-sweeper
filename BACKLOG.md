@@ -26,30 +26,30 @@
   GIVEN that the game has started
   THEN I should create a new empty board with size of 4x4
 
-### ⚠ US 2 - User checks the board squares
+### ✅ US 2 - User checks the board squares
 
-- ⚠ UAT 2.1:
+- ✅ UAT 2.1:
   GIVEN that the game has started,
   WHEN the user chooses a square to clear
   AND the square is uncleared
   THEN the square should have either a BOMB or be EMPTY
 
-### ⚠ US 3 - Defining bombs
+### ✅ US 3 - Defining bombs
 
-- ⚠ UAT 3.1:
+- ✅ UAT 3.1:
   GIVEN that the game has started
   AND the board was already created
   THEN the number of bombs should be limited to the board size (which is 9 in this case)
 
-- ⚠ UAT 3.2:
+- ✅ UAT 3.2:
   GIVEN that the game has started
   AND the board was already created
   WHEN I have the position of the bombs
   THEN I should have the board updated with the bombs positions
 
-### ⚠ US 4: User makes a move to an empty square without neighbor bombs
+### ✅ US 4: User makes a move to an empty square without neighbor bombs
 
-- ⚠ UAT 4.1:
+- ✅ UAT 4.1:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board
