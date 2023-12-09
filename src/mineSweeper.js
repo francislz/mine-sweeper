@@ -25,8 +25,11 @@ function addBombsToBoard(bombs, boardDimentions) {
   return board;
 }
 
+function clearBoardSquare() {}
+
 module.exports = {
   createBoard,
   createSquare,
   addBombsToBoard,
+  clearBoardSquare,
 };
