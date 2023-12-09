@@ -51,9 +51,17 @@ describe('adding bombs to the board', () => {
     const bombs = [
       [0, 0],
       [1, 0],
-      [1, 1],
-      [0, 1],
     ];
-    expect(() => addBombsToBoard(bombs)).toThrow('Invalid quantity of bombs');
+    const boardDimentions = 1;
+    expect(() => addBombsToBoard(bombs, boardDimentions)).toThrow('Invalid quantity of bombs');
+  });
+
+  it('should not error when the amount of bombs is less the total of squares', () => {
+    const bombs = [
+      [0, 0],
+      [1, 0],
+    ];
+    const boardDimentions = 2;
+    expect(() => addBombsToBoard(bombs, boardDimentions)).not.toThrow();
   });
 });
