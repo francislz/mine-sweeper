@@ -36,4 +36,10 @@ describe('creating squares for the board', () => {
       bomb: true,
     });
   });
+
+  it('should not contaiin a bomb when the game informs this square is not a bomb', () => {
+    expect(createSquare({ hasBomb: false })).toEqual({
+      bomb: false,
+    });
+  });
 });
