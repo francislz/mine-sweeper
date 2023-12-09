@@ -45,7 +45,7 @@
 
 - 🚧 Implement logic to add bombs to the board (US 3)
 
-  - 🚧 UAT 3.1:
+  - ✅ UAT 3.1:
     GIVEN that the game has started
     AND the board was already created
     THEN the number of bombs should be limited to the board size (which is 9 in this case)
@@ -65,3 +65,56 @@
     AND there are no bombs on the neighboring squares
     THEN that square should now be visible
     AND the number of bombs on neighboring squares should be 0
+
+### Pomodoro 4 🍅
+
+- 🚧 Implement logic to add bombs to the board (US 3)
+
+  - ⚠ UAT 3.2:
+    GIVEN that the game has started
+    AND the board was already created
+    WHEN I have the position of the bombs
+    THEN I should have the board updated with the bombs positions
+
+- ⚠ Implement logic for user to clear a square without bombs
+
+  - ⚠ UAT 4.1:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    WHEN I clear a square without a bomb
+    AND there are no bombs on the neighboring squares
+    THEN that square should now be visible
+    AND the number of bombs on neighboring squares should be 0
+
+- ⚠ US 5: User makes a move to an empty square with neighbor bombs
+
+  - ⚠ UAT 5.1:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    WHEN I clear a square without a bomb
+    AND there is 1 bomb on the square at the TOP of one that is being cleared
+    THEN that square should now be visible
+    AND the number of bombs on neighboring squares should be 1
+
+  - ⚠ UAT 5.2:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    WHEN I clear a square without a bomb
+    AND there is 1 bomb on the square at the TOP of one that is being cleared
+    AND there is 1 bomb on the square at the LEFT of one that is being cleared
+    THEN that square should now be visible
+    AND the number of bombs on neighboring squares should be 2
+
+  - ⚠ UAT 5.3:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    WHEN I clear a square without a bomb
+    AND there is 1 bomb on the square at the TOP of one that is being cleared
+    AND there is 1 bomb on the square at the LEFT of one that is being cleared
+    AND there is 1 bomb on the square at the BOTTOM of one that is being cleared
+    THEN that square should now be visible
+    AND the number of bombs on neighboring squares should be 3
