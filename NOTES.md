@@ -123,7 +123,7 @@
 
 - 🚧 US 5: User makes a move to an empty square with neighbor bombs
 
-  - 🚧 UAT 5.1:
+  - ✅ UAT 5.1:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
@@ -132,7 +132,7 @@
     THEN that square should now be visible
     AND the number of bombs on neighboring squares should be 1
 
-  - ⚠ UAT 5.2:
+  - 🚧 UAT 5.2:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
