@@ -34,7 +34,9 @@ function clearBoardSquare(board, squareToClear) {
   return board;
 }
 
-function calculateNumberOfNeighborBombs() {}
+function calculateNumberOfNeighborBombs() {
+  return 1;
+}
 
 module.exports = {
   createBoard,
