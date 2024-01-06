@@ -77,28 +77,33 @@ function calculateNumberOfNeighborBombs(board, squareToClear) {
   return sumOfNeighborBombs;
 }
 
+function getValidPosition(board, { row, column }, squareArray, positions) {
+  const [nRow, nColumn] = positions;
+  const neighborSquarePositions = [row + nRow, column + nColumn];
+  if (isValidPosition(board, neighborSquarePositions)) {
+    return [
+      ...squareArray,
+      {
+        row: neighborSquarePositions[0],
+        column: neighborSquarePositions[1],
+      },
+    ];
+  }
+  return squareArray;
+}
+
 function getNeighborSquaresToClear(board, squareToClear) {
-  const { row, column } = squareToClear;
-  return neighborSquaresIndexes.reduce((squareArray, positions) => {
-    const [nRow, nColumn] = positions;
-    const neighborSquarePositions = [row + nRow, column + nColumn];
-    if (isValidPosition(board, neighborSquarePositions)) {
-      return [
-        ...squareArray,
-        {
-          row: neighborSquarePositions[0],
-          column: neighborSquarePositions[1],
-        },
-      ];
-    }
-    return squareArray;
-  }, []);
+  return neighborSquaresIndexes.reduce((squareArray, positions) => getValidPosition(board, squareToClear, squareArray, positions), []);
+}
+
+function isValidSquareToClear(board, { row, column }) {
+  return !board[row][column].visible && board[row][column].numberOfNeighborBombs === 0;
 }
 
 function computeEmptySquaresToClear(board, squareToClear) {
   const { row, column } = squareToClear;
   board[row][column].numberOfNeighborBombs = calculateNumberOfNeighborBombs(board, squareToClear);
-  if (!board[row][column].visible && board[row][column].numberOfNeighborBombs === 0) {
+  if (isValidSquareToClear(board, squareToClear)) {
     return getNeighborSquaresToClear(board, squareToClear);
   }
   return [];

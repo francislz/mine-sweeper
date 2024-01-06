@@ -194,7 +194,7 @@
 
 - 🚧 [TECHDEBT] Create createClearSquare function for better legibility
 - ⚠ [TECHDEBT] Create createBombSquare function for better legibility
-- ⚠ [TECHDEBT] Work on cyclomatic complexity of getNeighborSquareToClear function
+- 🚧 [TECHDEBT] Work on cyclomatic complexity of getNeighborSquareToClear function
 
 - ⚠ US 7: Player win/lose conditions
 
