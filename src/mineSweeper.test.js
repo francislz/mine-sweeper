@@ -9,6 +9,11 @@ const {
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
+const oneNeighborBombSquare = createSquare({
+  hasBomb: false,
+  isCleared: true,
+  numberOfNeighborBombs: 1,
+});
 const bombSquare = createSquare({ hasBomb: true, isCleared: false });
 
 describe('createBoard', () => {
@@ -161,9 +166,9 @@ describe('calculate squares to clear when no neighbor bombs were found', () => {
     const bombs = [[0, 2]];
     const board = addBombsToBoard(bombs, 3);
     expect(computeEmptySquaresToClear(board, squareToClear)).toEqual([
-      [1, 0],
-      [1, 1],
-      [2, 1],
+      { row: 1, column: 0 },
+      { row: 1, column: 1 },
+      { row: 2, column: 1 },
     ]);
   });
   it('should return no neighbor squares when bombs were found', () => {
@@ -183,8 +188,8 @@ describe('recursively clear squares until one neighbor bomb is found', () => {
     const clearedBoard = recursivelyClearEmptySquares(board, squareToClear);
 
     expect(clearedBoard).toEqual([
-      [clearedSquare, clearedSquare, bombSquare],
-      [clearedSquare, clearedSquare, clearedSquare],
+      [clearedSquare, oneNeighborBombSquare, bombSquare],
+      [clearedSquare, oneNeighborBombSquare, oneNeighborBombSquare],
       [clearedSquare, clearedSquare, clearedSquare],
     ]);
   });

@@ -115,9 +115,9 @@
   THEN that square should now be visible
   AND the number of bombs on neighboring squares should be 5
 
-### ⚠ US 6: Recursively clearing squares after clearing an empty one
+### ✅ US 6: Recursively clearing squares after clearing an empty one
 
-- ⚠ UAT 6.1:
+- ✅ UAT 6.1:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board

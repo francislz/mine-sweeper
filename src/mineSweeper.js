@@ -19,11 +19,11 @@ function createBoard(dimentions) {
   return Array.from({ length: dimentions }, () => [...columns]);
 }
 
-function createSquare({ hasBomb, isCleared } = emptySquare) {
+function createSquare({ hasBomb, isCleared, numberOfNeighborBombs } = emptySquare) {
   return {
     bomb: hasBomb,
     visible: isCleared,
-    numberOfNeighborBombs: 0,
+    numberOfNeighborBombs: numberOfNeighborBombs || 0,
   };
 }
 
@@ -83,7 +83,13 @@ function getNeighborSquaresToClear(board, squareToClear) {
     const [nRow, nColumn] = positions;
     const neighborSquarePositions = [row + nRow, column + nColumn];
     if (isValidPosition(board, neighborSquarePositions)) {
-      return [...squareArray, neighborSquarePositions];
+      return [
+        ...squareArray,
+        {
+          row: neighborSquarePositions[0],
+          column: neighborSquarePositions[1],
+        },
+      ];
     }
     return squareArray;
   }, []);
@@ -92,13 +98,26 @@ function getNeighborSquaresToClear(board, squareToClear) {
 function computeEmptySquaresToClear(board, squareToClear) {
   const { row, column } = squareToClear;
   board[row][column].numberOfNeighborBombs = calculateNumberOfNeighborBombs(board, squareToClear);
-  if (board[row][column].numberOfNeighborBombs === 0) {
+  if (!board[row][column].visible && board[row][column].numberOfNeighborBombs === 0) {
     return getNeighborSquaresToClear(board, squareToClear);
   }
   return [];
 }
 
-function recursivelyClearEmptySquares() {}
+function recursivelyClearEmptySquares(board, squareToClear) {
+  const squaresToBeCleared = [squareToClear];
+  while (squaresToBeCleared.length !== 0) {
+    const { row, column } = squaresToBeCleared.pop();
+    const newSquaresToClear = computeEmptySquaresToClear(board, { row, column });
+    board[row][column] = createSquare({
+      hasBomb: false,
+      isCleared: true,
+      numberOfNeighborBombs: board[row][column].numberOfNeighborBombs,
+    });
+    squaresToBeCleared.unshift(...newSquaresToClear);
+  }
+  return board;
+}
 
 module.exports = {
   createBoard,

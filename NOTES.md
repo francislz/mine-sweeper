@@ -180,12 +180,35 @@
 
 ### Pomodoro 6 🍅
 
-- 🚧 US 6: Recursively clearing squares after clearing an empty one
+- ✅ US 6: Recursively clearing squares after clearing an empty one
 
-  - 🚧 UAT 6.1:
+  - ✅ UAT 6.1:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
     WHEN the user clears an EMPTY square
     AND this square has no neighbor bombs
     THEN the game should recursively clear the neighbor squares until it finds a square with at least a neighbor bomb
+
+### Pomodoro 7 🍅
+
+- 🚧 [TECHDEBT] Create createClearSquare function for better legibility
+- ⚠ [TECHDEBT] Create createBombSquare function for better legibility
+- ⚠ [TECHDEBT] Work on cyclomatic complexity of getNeighborSquareToClear function
+
+- ⚠ US 7: Player win/lose conditions
+
+  - ⚠ UAT 7.1:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    WHEN the user clears an square WITH a BOMB
+    THEN the player has LOST
+    AND the game should give the message “BOOM! – Game Over.”
+
+  - ⚠ UAT 7.2:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    WHEN there are no uncleared positions without bombs left
+    THEN the player has WON
+    AND the game should give the message “The land is cleared! GOOD JOB!”
