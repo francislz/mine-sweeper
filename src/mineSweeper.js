@@ -130,7 +130,9 @@ function recursivelyClearEmptySquares(board, squareToClear) {
   return board;
 }
 
-function hasTheGameFinished() {}
+function hasTheGameFinished(board) {
+  return board.some((row) => !row.some((square) => !square.visible));
+}
 
 module.exports = {
   createBoard,
