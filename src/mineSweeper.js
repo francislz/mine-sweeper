@@ -131,7 +131,7 @@ function recursivelyClearEmptySquares(board, squareToClear) {
 }
 
 function hasTheGameFinished(board) {
-  return board.some((row) => !row.some((square) => !square.visible));
+  return board.every((row) => row.every((square) => square.visible || square.bomb));
 }
 
 module.exports = {
