@@ -138,11 +138,19 @@ function hasTheGameFinished(board) {
   return board.every((row) => row.every(isSquareVisibleOrBomb));
 }
 
-function checkWinningConditions() {
+function checkWinningConditions(board, squareToClear) {
+  const { row, column } = squareToClear;
+  if (board[row][column].bomb) {
+    return {
+      finished: true,
+      won: false,
+      message: 'BOOM! - Game Over.',
+    };
+  }
   return {
-    finished: true,
+    finished: false,
     won: false,
-    message: 'BOOM! - Game Over.',
+    message: '',
   };
 }
 
