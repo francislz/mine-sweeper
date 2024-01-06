@@ -133,4 +133,17 @@ describe('calculating the number of neighbor bombs', () => {
     const board = addBombsToBoard(bombs, 3);
     expect(calculateNumberOfNeighborBombs(board, squareToClear)).toBe(4);
   });
+
+  it('should calculate 5 neighbor bombs, on: TOP, LEFT, BOTTOM, RIGHT and on one of the DIAGONALS', () => {
+    const squareToClear = { row: 1, column: 1 };
+    const bombs = [
+      [0, 1],
+      [1, 0],
+      [2, 1],
+      [1, 2],
+      [0, 0],
+    ];
+    const board = addBombsToBoard(bombs, 3);
+    expect(calculateNumberOfNeighborBombs(board, squareToClear)).toBe(5);
+  });
 });
