@@ -34,8 +34,13 @@ function clearBoardSquare(board, squareToClear) {
   return board;
 }
 
-function calculateNumberOfNeighborBombs() {
-  return 1;
+function calculateNumberOfNeighborBombs(board, squareToClear) {
+  const { row, column } = squareToClear;
+  let sumOfNeighborBombs = 1;
+  if (board[row][column - 1].bomb) {
+    sumOfNeighborBombs += 1;
+  }
+  return sumOfNeighborBombs;
 }
 
 module.exports = {
