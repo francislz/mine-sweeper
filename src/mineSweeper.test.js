@@ -6,6 +6,7 @@ const {
   calculateNumberOfNeighborBombs,
   computeEmptySquaresToClear,
   recursivelyClearEmptySquares,
+  hasTheGameFinished,
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
@@ -192,5 +193,14 @@ describe('recursively clear squares until one neighbor bomb is found', () => {
       [clearedSquare, oneNeighborBombSquare, oneNeighborBombSquare],
       [clearedSquare, clearedSquare, clearedSquare],
     ]);
+  });
+});
+
+describe('checks if the game has finished due to uncleared squares', () => {
+  it('should indicate that the game is not finished since there are uncleared squares', () => {
+    const bombs = [[0, 2]];
+    const board = addBombsToBoard(bombs, 3);
+
+    expect(hasTheGameFinished(board)).toBe(false);
   });
 });

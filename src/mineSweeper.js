@@ -130,6 +130,8 @@ function recursivelyClearEmptySquares(board, squareToClear) {
   return board;
 }
 
+function hasTheGameFinished() {}
+
 module.exports = {
   createBoard,
   createSquare,
@@ -138,4 +140,5 @@ module.exports = {
   calculateNumberOfNeighborBombs,
   computeEmptySquaresToClear,
   recursivelyClearEmptySquares,
+  hasTheGameFinished,
 };
