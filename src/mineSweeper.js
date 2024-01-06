@@ -95,6 +95,7 @@ function computeEmptySquaresToClear(board, squareToClear) {
   if (board[row][column].numberOfNeighborBombs === 0) {
     return getNeighborSquaresToClear(board, squareToClear);
   }
+  return [];
 }
 
 module.exports = {
