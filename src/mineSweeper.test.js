@@ -217,6 +217,17 @@ describe('checks if the game has finished due to uncleared squares', () => {
 });
 
 describe('should verify if player won the game', () => {
+  it('should indicate that the game is not finished and the player niether won or lost the game', () => {
+    const squareToClear = { row: 2, column: 0 };
+    const bombs = [[0, 2]];
+    const board = addBombsToBoard(bombs, 3);
+
+    expect(checkWinningConditions(board, squareToClear)).toEqual({
+      finished: false,
+      won: false,
+      message: '',
+    });
+  });
   it('should give the message "BOOM! - Game Over." when the player opens a bomb square', () => {
     const squareToClear = { row: 0, column: 2 };
     const bombs = [[0, 2]];

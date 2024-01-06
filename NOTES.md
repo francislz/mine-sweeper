@@ -198,7 +198,7 @@
 
 - 🚧 US 7: Player win/lose conditions
 
-  - 🚧 UAT 7.1:
+  - ✅ UAT 7.1:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
@@ -206,7 +206,7 @@
     THEN the player has LOST
     AND the game should give the message “BOOM! – Game Over.”
 
-  - ⚠ UAT 7.2:
+  - 🚧 UAT 7.2:
     GIVEN that the game has started
     AND the board has all the bombs positions
     WHEN there are no uncleared positions without bombs left
