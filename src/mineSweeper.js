@@ -43,6 +43,9 @@ function calculateNumberOfNeighborBombs(board, squareToClear) {
   if (board[row + 1][column].bomb) {
     sumOfNeighborBombs += 1;
   }
+  if (board[row][column + 1].bomb) {
+    sumOfNeighborBombs += 1;
+  }
   return sumOfNeighborBombs;
 }
 
