@@ -77,8 +77,24 @@ function calculateNumberOfNeighborBombs(board, squareToClear) {
   return sumOfNeighborBombs;
 }
 
-function computeEmptySquaresToClear() {
-  return;
+function getNeighborSquaresToClear(board, squareToClear) {
+  const { row, column } = squareToClear;
+  return neighborSquaresIndexes.reduce((squareArray, positions) => {
+    const [nRow, nColumn] = positions;
+    const neighborSquarePositions = [row + nRow, column + nColumn];
+    if (isValidPosition(board, neighborSquarePositions)) {
+      return [...squareArray, neighborSquarePositions];
+    }
+    return squareArray;
+  }, []);
+}
+
+function computeEmptySquaresToClear(board, squareToClear) {
+  const { row, column } = squareToClear;
+  board[row][column].numberOfNeighborBombs = calculateNumberOfNeighborBombs(board, squareToClear);
+  if (board[row][column].numberOfNeighborBombs === 0) {
+    return getNeighborSquaresToClear(board, squareToClear);
+  }
 }
 
 module.exports = {
