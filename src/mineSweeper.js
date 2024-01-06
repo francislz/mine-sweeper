@@ -14,6 +14,24 @@ const neighborSquaresIndexes = [
   [1, 1],
 ];
 
+const defaultGameInfo = {
+  finished: false,
+  won: false,
+  message: '',
+};
+
+const playerLostInfo = {
+  finished: true,
+  won: false,
+  message: 'BOOM! - Game Over.',
+};
+
+const playerWonInfo = {
+  finished: true,
+  won: true,
+  message: 'The land is cleared! GOOD JOOB!',
+};
+
 function createBoard(dimentions) {
   const columns = Array.from({ length: dimentions }, () => createSquare());
   return Array.from({ length: dimentions }, () => [...columns]);
@@ -138,28 +156,19 @@ function hasTheGameFinished(board) {
   return board.every((row) => row.every(isSquareVisibleOrBomb));
 }
 
-function checkWinningConditions(board, squareToClear) {
+function getLossOrDefaultConditions(board, squareToClear) {
   const { row, column } = squareToClear;
-  if (hasTheGameFinished(board)) {
-    return {
-      finished: true,
-      won: true,
-      message: 'The land is cleared! GOOD JOOB!',
-    };
-  }
-
   if (board[row][column].bomb) {
-    return {
-      finished: true,
-      won: false,
-      message: 'BOOM! - Game Over.',
-    };
+    return playerLostInfo;
   }
-  return {
-    finished: false,
-    won: false,
-    message: '',
-  };
+  return defaultGameInfo;
+}
+
+function checkWinningConditions(board, squareToClear) {
+  if (hasTheGameFinished(board)) {
+    return playerWonInfo;
+  }
+  return getLossOrDefaultConditions(board, squareToClear);
 }
 
 module.exports = {
