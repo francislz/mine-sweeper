@@ -22,9 +22,15 @@ function createBoard(dimentions) {
 function createSquare({ hasBomb, isCleared, numberOfNeighborBombs } = emptySquare) {
   return {
     bomb: hasBomb,
-    visible: isCleared,
+    visible: isCleared || false,
     numberOfNeighborBombs: numberOfNeighborBombs || 0,
   };
+}
+
+function createBombSquare() {
+  return createSquare({
+    hasBomb: true,
+  });
 }
 
 function addBombsToBoard(bombs, boardDimentions) {
@@ -34,14 +40,18 @@ function addBombsToBoard(bombs, boardDimentions) {
   const board = createBoard(boardDimentions);
   bombs.forEach((bomb) => {
     const [row, column] = bomb;
-    board[row][column] = createSquare({ hasBomb: true, isCleared: false });
+    board[row][column] = createBombSquare();
   });
   return board;
 }
 
 function clearBoardSquare(board, squareToClear) {
   const { row, column } = squareToClear;
-  board[row][column] = createSquare({ hasBomb: false, isCleared: true });
+  board[row][column] = createSquare({
+    hasBomb: board[row][column].bomb,
+    isCleared: true,
+    numberOfNeighborBombs: board[row][column].numberOfNeighborBombs,
+  });
   return board;
 }
 
@@ -114,11 +124,7 @@ function recursivelyClearEmptySquares(board, squareToClear) {
   while (squaresToBeCleared.length !== 0) {
     const { row, column } = squaresToBeCleared.pop();
     const newSquaresToClear = computeEmptySquaresToClear(board, { row, column });
-    board[row][column] = createSquare({
-      hasBomb: false,
-      isCleared: true,
-      numberOfNeighborBombs: board[row][column].numberOfNeighborBombs,
-    });
+    clearBoardSquare(board, { row, column });
     squaresToBeCleared.unshift(...newSquaresToClear);
   }
   return board;

@@ -192,13 +192,13 @@
 
 ### Pomodoro 7 🍅
 
-- 🚧 [TECHDEBT] Create createClearSquare function for better legibility
-- ⚠ [TECHDEBT] Create createBombSquare function for better legibility
+- ✅ [TECHDEBT] Create createClearSquare function for better legibility
+- ✅ [TECHDEBT] Create createBombSquare function for better legibility
 - ✅ [TECHDEBT] Work on cyclomatic complexity of getNeighborSquareToClear function
 
-- ⚠ US 7: Player win/lose conditions
+- 🚧 US 7: Player win/lose conditions
 
-  - ⚠ UAT 7.1:
+  - 🚧 UAT 7.1:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
