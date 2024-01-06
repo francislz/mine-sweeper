@@ -58,9 +58,9 @@
   THEN that square should now be visible
   AND the number of bombs on neighboring squares should be 0
 
-### ⚠ US 5: User makes a move to an empty square with neighbor bombs
+### ✅ US 5: User makes a move to an empty square with neighbor bombs
 
-- ⚠ UAT 5.1:
+- ✅ UAT 5.1:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board
@@ -69,7 +69,7 @@
   THEN that square should now be visible
   AND the number of bombs on neighboring squares should be 1
 
-- ⚠ UAT 5.2:
+- ✅ UAT 5.2:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board
@@ -79,7 +79,7 @@
   THEN that square should now be visible
   AND the number of bombs on neighboring squares should be 2
 
-- ⚠ UAT 5.3:
+- ✅ UAT 5.3:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board
@@ -90,7 +90,7 @@
   THEN that square should now be visible
   AND the number of bombs on neighboring squares should be 3
 
-- ⚠ UAT 5.4:
+- ✅ UAT 5.4:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board
@@ -102,7 +102,7 @@
   THEN that square should now be visible
   AND the number of bombs on neighboring squares should be 4
 
-- ⚠ UAT 5.5:
+- ✅ UAT 5.5:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board

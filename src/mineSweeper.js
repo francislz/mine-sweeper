@@ -34,18 +34,46 @@ function clearBoardSquare(board, squareToClear) {
   return board;
 }
 
+const neighborBombsIndexes = [
+  [-1, -1],
+  [-1, 0],
+  [-1, 1],
+  [0, -1],
+  [0, 1],
+  [1, -1],
+  [1, 0],
+  [1, 1],
+];
+
+function isValidIndexPosition(index, length) {
+  return index >= 0 && index < length;
+}
+
+function isValidPosition(board, positions) {
+  const rowLength = board.length;
+  const columnLength = board[0].length;
+  const [row, column] = positions;
+  return isValidIndexPosition(row, rowLength) && isValidIndexPosition(column, columnLength);
+}
+
+function isValidBombPosition(board, positions) {
+  const [row, column] = positions;
+  return isValidPosition(board, positions) && board[row][column].bomb;
+}
+
+function calculateSumOfNeighborBombs(board, positions, sum) {
+  if (isValidBombPosition(board, positions)) {
+    return sum + 1;
+  }
+  return sum;
+}
+
 function calculateNumberOfNeighborBombs(board, squareToClear) {
   const { row, column } = squareToClear;
-  let sumOfNeighborBombs = 1;
-  if (board[row][column - 1].bomb) {
-    sumOfNeighborBombs += 1;
-  }
-  if (board[row + 1][column].bomb) {
-    sumOfNeighborBombs += 1;
-  }
-  if (board[row][column + 1].bomb) {
-    sumOfNeighborBombs += 1;
-  }
+  const sumOfNeighborBombs = neighborBombsIndexes.reduce((sum, positions) => {
+    const [nRow, nColumn] = positions;
+    return calculateSumOfNeighborBombs(board, [row + nRow, column + nColumn], sum);
+  }, 0);
   return sumOfNeighborBombs;
 }
 
