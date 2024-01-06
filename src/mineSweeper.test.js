@@ -228,6 +228,7 @@ describe('should verify if player won the game', () => {
       message: '',
     });
   });
+
   it('should give the message "BOOM! - Game Over." when the player opens a bomb square', () => {
     const squareToClear = { row: 0, column: 2 };
     const bombs = [[0, 2]];
@@ -237,6 +238,20 @@ describe('should verify if player won the game', () => {
       finished: true,
       won: false,
       message: 'BOOM! - Game Over.',
+    });
+  });
+
+  it('should give the message "The land is cleared! GOOD JOOB!" when there are no squares left to clear', () => {
+    const squareToClear = { row: 2, column: 0 };
+    const bombs = [[0, 2]];
+    const board = addBombsToBoard(bombs, 3);
+
+    const clearedBoard = recursivelyClearEmptySquares(board, squareToClear);
+
+    expect(checkWinningConditions(clearedBoard, squareToClear)).toEqual({
+      finished: true,
+      won: true,
+      message: 'The land is cleared! GOOD JOOB!',
     });
   });
 });
