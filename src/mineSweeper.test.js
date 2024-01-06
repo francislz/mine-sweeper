@@ -159,4 +159,10 @@ describe('calculate squares to clear when no neighbor bombs were found', () => {
       [2, 1],
     ]);
   });
+  it('should return no neighbor squares when bombs were found', () => {
+    const squareToClear = { row: 1, column: 1 };
+    const bombs = [[0, 2]];
+    const board = addBombsToBoard(bombs, 3);
+    expect(computeEmptySquaresToClear(board, squareToClear)).toEqual([]);
+  });
 });
