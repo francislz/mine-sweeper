@@ -203,4 +203,14 @@ describe('checks if the game has finished due to uncleared squares', () => {
 
     expect(hasTheGameFinished(board)).toBe(false);
   });
+
+  it('should indicate that the game is finished when there are no uncleared squares', () => {
+    const squareToClear = { row: 2, column: 0 };
+    const bombs = [[0, 2]];
+    const board = addBombsToBoard(bombs, 3);
+
+    const clearedBoard = recursivelyClearEmptySquares(board, squareToClear);
+
+    expect(hasTheGameFinished(clearedBoard)).toBe(true);
+  });
 });
