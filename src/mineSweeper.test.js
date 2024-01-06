@@ -7,6 +7,7 @@ const {
   computeEmptySquaresToClear,
   recursivelyClearEmptySquares,
   hasTheGameFinished,
+  checkWinningConditions,
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
@@ -212,5 +213,19 @@ describe('checks if the game has finished due to uncleared squares', () => {
     const clearedBoard = recursivelyClearEmptySquares(board, squareToClear);
 
     expect(hasTheGameFinished(clearedBoard)).toBe(true);
+  });
+});
+
+describe('should verify if player won the game', () => {
+  it('should give the message "BOOM! - Game Over." when the player opens a bomb square', () => {
+    const squareToClear = { row: 0, column: 2 };
+    const bombs = [[0, 2]];
+    const board = addBombsToBoard(bombs, 3);
+
+    expect(checkWinningConditions(board, squareToClear)).toBe({
+      finished: true,
+      won: false,
+      message: 'BOOM! - Game Over.',
+    });
   });
 });

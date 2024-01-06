@@ -138,6 +138,8 @@ function hasTheGameFinished(board) {
   return board.every((row) => row.every(isSquareVisibleOrBomb));
 }
 
+function checkWinningConditions() {}
+
 module.exports = {
   createBoard,
   createSquare,
@@ -147,4 +149,5 @@ module.exports = {
   computeEmptySquaresToClear,
   recursivelyClearEmptySquares,
   hasTheGameFinished,
+  checkWinningConditions,
 };
