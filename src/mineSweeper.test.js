@@ -222,7 +222,7 @@ describe('should verify if player won the game', () => {
     const bombs = [[0, 2]];
     const board = addBombsToBoard(bombs, 3);
 
-    expect(checkWinningConditions(board, squareToClear)).toBe({
+    expect(checkWinningConditions(board, squareToClear)).toEqual({
       finished: true,
       won: false,
       message: 'BOOM! - Game Over.',

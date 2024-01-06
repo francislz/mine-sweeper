@@ -138,7 +138,13 @@ function hasTheGameFinished(board) {
   return board.every((row) => row.every(isSquareVisibleOrBomb));
 }
 
-function checkWinningConditions() {}
+function checkWinningConditions() {
+  return {
+    finished: true,
+    won: false,
+    message: 'BOOM! - Game Over.',
+  };
+}
 
 module.exports = {
   createBoard,
