@@ -8,6 +8,7 @@ const {
   recursivelyClearEmptySquares,
   hasTheGameFinished,
   checkWinningConditions,
+  createBombSquare,
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
@@ -16,7 +17,7 @@ const oneNeighborBombSquare = createSquare({
   isCleared: true,
   numberOfNeighborBombs: 1,
 });
-const bombSquare = createSquare({ hasBomb: true, isCleared: false });
+const bombSquare = createBombSquare();
 
 describe('createBoard', () => {
   it('should create an 1x1 board with empty squares', () => {

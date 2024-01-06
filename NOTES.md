@@ -196,7 +196,7 @@
 - ✅ [TECHDEBT] Create createBombSquare function for better legibility
 - ✅ [TECHDEBT] Work on cyclomatic complexity of getNeighborSquareToClear function
 
-- 🚧 US 7: Player win/lose conditions
+- ✅ US 7: Player win/lose conditions
 
   - ✅ UAT 7.1:
     GIVEN that the game has started
@@ -206,9 +206,20 @@
     THEN the player has LOST
     AND the game should give the message “BOOM! – Game Over.”
 
-  - 🚧 UAT 7.2:
+  - ✅ UAT 7.2:
     GIVEN that the game has started
     AND the board has all the bombs positions
     WHEN there are no uncleared positions without bombs left
     THEN the player has WON
     AND the game should give the message “The land is cleared! GOOD JOB!”
+
+### Pomodoro 8 🍅
+
+- ⚠ US 8: User is able to flag squares for bombs
+
+  - ⚠ UAT 8.1:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    WHEN the player clicks on square to flag it
+    THEN the game should mark that square as a bomb flagged square

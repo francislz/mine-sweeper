@@ -140,6 +140,14 @@ function hasTheGameFinished(board) {
 
 function checkWinningConditions(board, squareToClear) {
   const { row, column } = squareToClear;
+  if (hasTheGameFinished(board)) {
+    return {
+      finished: true,
+      won: true,
+      message: 'The land is cleared! GOOD JOOB!',
+    };
+  }
+
   if (board[row][column].bomb) {
     return {
       finished: true,
@@ -156,6 +164,7 @@ function checkWinningConditions(board, squareToClear) {
 
 module.exports = {
   createBoard,
+  createBombSquare,
   createSquare,
   addBombsToBoard,
   clearBoardSquare,
