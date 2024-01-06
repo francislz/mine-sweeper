@@ -130,8 +130,12 @@ function recursivelyClearEmptySquares(board, squareToClear) {
   return board;
 }
 
+function isSquareVisibleOrBomb(square) {
+  return square.visible || square.bomb;
+}
+
 function hasTheGameFinished(board) {
-  return board.every((row) => row.every((square) => square.visible || square.bomb));
+  return board.every((row) => row.every(isSquareVisibleOrBomb));
 }
 
 module.exports = {
