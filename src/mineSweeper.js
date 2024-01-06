@@ -3,6 +3,17 @@ const emptySquare = {
   isCleared: false,
 };
 
+const neighborSquaresIndexes = [
+  [-1, -1],
+  [-1, 0],
+  [-1, 1],
+  [0, -1],
+  [0, 1],
+  [1, -1],
+  [1, 0],
+  [1, 1],
+];
+
 function createBoard(dimentions) {
   const columns = Array.from({ length: dimentions }, () => createSquare());
   return Array.from({ length: dimentions }, () => [...columns]);
@@ -34,17 +45,6 @@ function clearBoardSquare(board, squareToClear) {
   return board;
 }
 
-const neighborBombsIndexes = [
-  [-1, -1],
-  [-1, 0],
-  [-1, 1],
-  [0, -1],
-  [0, 1],
-  [1, -1],
-  [1, 0],
-  [1, 1],
-];
-
 function isValidIndexPosition(index, length) {
   return index >= 0 && index < length;
 }
@@ -70,11 +70,15 @@ function calculateSumOfNeighborBombs(board, positions, sum) {
 
 function calculateNumberOfNeighborBombs(board, squareToClear) {
   const { row, column } = squareToClear;
-  const sumOfNeighborBombs = neighborBombsIndexes.reduce((sum, positions) => {
+  const sumOfNeighborBombs = neighborSquaresIndexes.reduce((sum, positions) => {
     const [nRow, nColumn] = positions;
     return calculateSumOfNeighborBombs(board, [row + nRow, column + nColumn], sum);
   }, 0);
   return sumOfNeighborBombs;
+}
+
+function computeEmptySquaresToClear() {
+  return;
 }
 
 module.exports = {
@@ -83,4 +87,5 @@ module.exports = {
   addBombsToBoard,
   clearBoardSquare,
   calculateNumberOfNeighborBombs,
+  computeEmptySquaresToClear,
 };
