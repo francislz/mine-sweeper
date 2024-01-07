@@ -187,7 +187,23 @@ function flagSquareAsBomb(board, squareToFlag) {
   return board;
 }
 
+function computePossibleMovesBasedOnBoardDimentions(indexes) {
+  return (validMoves, rowIndex) => [...validMoves, ...indexes.map((columnIndex) => [rowIndex, columnIndex])];
+}
+
+function generateSetOfPossibleMoves(boardDimentions) {
+  const boardIndexes = Array.from({ length: boardDimentions }, (_, i) => i);
+  return boardIndexes.reduce(computePossibleMovesBasedOnBoardDimentions(boardIndexes), []);
+}
+
+function generateNextMove(board) {
+  const possibilities = generateSetOfPossibleMoves(board.length);
+  const index = Math.floor(Math.random(board.length));
+  return possibilities[index];
+}
+
 module.exports = {
+  generateNextMove,
   createBoard,
   createBombSquare,
   createSquare,
