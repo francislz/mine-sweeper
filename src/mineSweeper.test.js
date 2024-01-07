@@ -9,9 +9,12 @@ const {
   hasTheGameFinished,
   checkWinningConditions,
   createBombSquare,
+  createFlaggedSquare,
+  flagSquareAsBomb,
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
+const flaggedSquare = createFlaggedSquare({ hasBomb: true, isCleared: false, isFlagged: true });
 const oneNeighborBombSquare = createSquare({
   hasBomb: false,
   isCleared: true,
@@ -254,5 +257,19 @@ describe('should verify if player won the game', () => {
       won: true,
       message: 'The land is cleared! GOOD JOOB!',
     });
+  });
+});
+
+describe('user should be able to flag square as bomb', () => {
+  it('should mark the given square to a flagged square in the board', () => {
+    const squareToFlag = { row: 0, column: 2 };
+    const bombs = [[0, 2]];
+    const board = addBombsToBoard(bombs, 3);
+
+    expect(flagSquareAsBomb(board, squareToFlag)).toEqual([
+      [emptySquare, emptySquare, flaggedSquare],
+      [emptySquare, emptySquare, emptySquare],
+      [emptySquare, emptySquare, emptySquare],
+    ]);
   });
 });

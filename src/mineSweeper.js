@@ -171,10 +171,15 @@ function checkWinningConditions(board, squareToClear) {
   return getLossOrDefaultConditions(board, squareToClear);
 }
 
+function createFlaggedSquare() {}
+
+function flagSquareAsBomb() {}
+
 module.exports = {
   createBoard,
   createBombSquare,
   createSquare,
+  createFlaggedSquare,
   addBombsToBoard,
   clearBoardSquare,
   calculateNumberOfNeighborBombs,
@@ -182,4 +187,5 @@ module.exports = {
   recursivelyClearEmptySquares,
   hasTheGameFinished,
   checkWinningConditions,
+  flagSquareAsBomb,
 };
