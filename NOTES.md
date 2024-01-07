@@ -215,11 +215,19 @@
 
 ### Pomodoro 8 🍅
 
-- ⚠ US 8: User is able to flag squares for bombs
+- ✅ US 8: User is able to flag squares for bombs
 
-  - ⚠ UAT 8.1:
+  - ✅ UAT 8.1:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
     WHEN the player clicks on square to flag it
     THEN the game should mark that square as a bomb flagged square
+
+- 🚧 US 9: Bot plays the game
+
+  - 🚧 UAT 9.1:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    THEN the player should be a bot that chooses the next move

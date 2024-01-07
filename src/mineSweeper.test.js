@@ -14,7 +14,7 @@ const {
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
-const flaggedSquare = createFlaggedSquare({ hasBomb: true, isCleared: false, isFlagged: true });
+const flaggedSquare = createFlaggedSquare({ bomb: true, visible: false });
 const oneNeighborBombSquare = createSquare({
   hasBomb: false,
   isCleared: true,

@@ -37,11 +37,12 @@ function createBoard(dimentions) {
   return Array.from({ length: dimentions }, () => [...columns]);
 }
 
-function createSquare({ hasBomb, isCleared, numberOfNeighborBombs } = emptySquare) {
+function createSquare({ hasBomb, isCleared, numberOfNeighborBombs, isFlagged } = emptySquare) {
   return {
     bomb: hasBomb,
     visible: isCleared || false,
     numberOfNeighborBombs: numberOfNeighborBombs || 0,
+    flagged: isFlagged || false,
   };
 }
 
@@ -171,9 +172,20 @@ function checkWinningConditions(board, squareToClear) {
   return getLossOrDefaultConditions(board, squareToClear);
 }
 
-function createFlaggedSquare() {}
+function createFlaggedSquare(square) {
+  return createSquare({
+    hasBomb: square.bomb,
+    isCleared: square.visible,
+    numberOfNeighborBombs: square.numberOfNeighborBombs,
+    isFlagged: true,
+  });
+}
 
-function flagSquareAsBomb() {}
+function flagSquareAsBomb(board, squareToFlag) {
+  const { row, column } = squareToFlag;
+  board[row][column] = createFlaggedSquare(board[row][column]);
+  return board;
+}
 
 module.exports = {
   createBoard,
