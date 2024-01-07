@@ -46,9 +46,10 @@ function createSquare({ hasBomb, isCleared, numberOfNeighborBombs, isFlagged } =
   };
 }
 
-function createBombSquare() {
+function createBombSquare(isCleared = false) {
   return createSquare({
     hasBomb: true,
+    isCleared,
   });
 }
 
@@ -202,12 +203,20 @@ function generateNextMove(board) {
   return possibilities[index];
 }
 
-function printClearedSquare(square) {
+function printNeighborBombsSquare(square) {
   if (square.numberOfNeighborBombs === 0) {
     return '_';
   }
 
   return square.numberOfNeighborBombs;
+}
+
+function printClearedSquare(square) {
+  if (square.bomb) {
+    return '*';
+  }
+
+  return printNeighborBombsSquare(square);
 }
 
 function printSquare(square) {
