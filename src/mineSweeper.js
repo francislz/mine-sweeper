@@ -202,8 +202,21 @@ function generateNextMove(board) {
   return possibilities[index];
 }
 
-function printBoard() {}
+function printSquare() {
+  return ' ';
+}
 
+function printBoard(board) {
+  let boardString = `+---+---+---+\n`;
+  boardString += `| ${printSquare(board[0][0])} | ${printSquare(board[0][1])} | ${printSquare(board[0][2])} |\n`;
+  boardString += `+---+---+---+\n`;
+  boardString += `| ${printSquare(board[1][0])} | ${printSquare(board[1][1])} | ${printSquare(board[1][2])} |\n`;
+  boardString += `+---+---+---+\n`;
+  boardString += `| ${printSquare(board[2][0])} | ${printSquare(board[2][1])} | ${printSquare(board[2][2])} |\n`;
+  boardString += `+---+---+---+\n`;
+
+  return boardString;
+}
 module.exports = {
   generateNextMove,
   createBoard,
