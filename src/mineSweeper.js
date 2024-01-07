@@ -202,8 +202,20 @@ function generateNextMove(board) {
   return possibilities[index];
 }
 
-function printSquare() {
-  return ' ';
+function printClearedSquare(square) {
+  if (square.numberOfNeighborBombs === 0) {
+    return '_';
+  }
+
+  return square.numberOfNeighborBombs;
+}
+
+function printSquare(square) {
+  if (!square.visible) {
+    return ' ';
+  }
+
+  return printClearedSquare(square);
 }
 
 function printBoard(board) {
