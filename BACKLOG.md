@@ -125,9 +125,9 @@
   AND this square has no neighbor bombs
   THEN the game should recursively clear the neighbor squares until it finds a square with at least a neighbor bomb
 
-### ⚠ US 7: Player win/lose conditions
+### ✅ US 7: Player win/lose conditions
 
-- ⚠ UAT 7.1:
+- ✅ UAT 7.1:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board
@@ -135,7 +135,7 @@
   THEN the player has LOST
   AND the game should give the message “BOOM! – Game Over.”
 
-- ⚠ UAT 7.2:
+- ✅ UAT 7.2:
   GIVEN that the game has started
   AND the board has all the bombs positions
   WHEN there are no uncleared positions without bombs left
@@ -151,15 +151,15 @@
   WHEN the player clicks on square to flag it
   THEN the game should mark that square as a bomb flagged square
 
-### ⚠ US 9: Bot plays the game
+### ✅ US 9: Bot plays the game
 
-- ⚠ UAT 9.1:
+- ✅ UAT 9.1:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board
   THEN the player should be a bot that chooses the next move
 
-- ⚠ UAT 9.2:
+- ✅ UAT 9.2:
   GIVEN that the game has started
   AND the board has all the bombs positions
   AND there still are uncleared squares on the board

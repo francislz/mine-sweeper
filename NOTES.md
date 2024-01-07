@@ -224,7 +224,7 @@
     WHEN the player clicks on square to flag it
     THEN the game should mark that square as a bomb flagged square
 
-- 🚧 US 9: Bot plays the game
+- ✅ US 9: Bot plays the game
 
   - ✅ UAT 9.1:
     GIVEN that the game has started
@@ -232,7 +232,7 @@
     AND there still are uncleared squares on the board
     THEN the player should be a bot that chooses the next move
 
-  - 🚧 UAT 9.2:
+  - ✅ UAT 9.2:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
