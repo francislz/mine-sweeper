@@ -11,6 +11,7 @@ const {
   createBombSquare,
   createFlaggedSquare,
   flagSquareAsBomb,
+  generateNextMove,
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
@@ -271,5 +272,19 @@ describe('user should be able to flag square as bomb', () => {
       [emptySquare, emptySquare, emptySquare],
       [emptySquare, emptySquare, emptySquare],
     ]);
+  });
+});
+
+describe('Bots should be able to play the game', () => {
+  describe('Bots should be able to choose a next move', () => {
+    it('should generate a valid move using an uncleared square of the board', () => {
+      const bombs = [[0, 2]];
+      const board = addBombsToBoard(bombs, 3);
+
+      const randomSpy = jest.spyOn(Math, 'random');
+      randomSpy.mockReturnValueOnce(1);
+
+      expect(generateNextMove(board)).toEqual([0, 1]);
+    });
   });
 });
