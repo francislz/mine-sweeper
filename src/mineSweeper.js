@@ -202,6 +202,8 @@ function generateNextMove(board) {
   return possibilities[index];
 }
 
+function printBoard() {}
+
 module.exports = {
   generateNextMove,
   createBoard,
@@ -216,4 +218,5 @@ module.exports = {
   hasTheGameFinished,
   checkWinningConditions,
   flagSquareAsBomb,
+  printBoard,
 };

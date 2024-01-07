@@ -226,8 +226,15 @@
 
 - 🚧 US 9: Bot plays the game
 
-  - 🚧 UAT 9.1:
+  - ✅ UAT 9.1:
     GIVEN that the game has started
     AND the board has all the bombs positions
     AND there still are uncleared squares on the board
     THEN the player should be a bot that chooses the next move
+
+  - 🚧 UAT 9.2:
+    GIVEN that the game has started
+    AND the board has all the bombs positions
+    AND there still are uncleared squares on the board
+    WHEN the bot makes a play
+    THEN the game should print the board state after the play

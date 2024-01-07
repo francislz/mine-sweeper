@@ -12,6 +12,7 @@ const {
   createFlaggedSquare,
   flagSquareAsBomb,
   generateNextMove,
+  printBoard,
 } = require('./mineSweeper');
 const emptySquare = createSquare({ hasBomb: false, isCleared: false });
 const clearedSquare = createSquare({ hasBomb: false, isCleared: true });
@@ -285,6 +286,22 @@ describe('Bots should be able to play the game', () => {
       randomSpy.mockReturnValueOnce(1);
 
       expect(generateNextMove(board)).toEqual([0, 1]);
+    });
+  });
+
+  describe('User should be able to see the board state on the screen', () => {
+    it('should display the board with uncleared square on the screen', () => {
+      const bombs = [[0, 2]];
+      const board = addBombsToBoard(bombs, 3);
+      let boardString = `+---+---+---+\n`;
+      boardString += `|   |   |   |\n`;
+      boardString += `+---+---+---+\n`;
+      boardString += `|   |   |   |\n`;
+      boardString += `+---+---+---+\n`;
+      boardString += `|   |   |   |\n`;
+      boardString += `+---+---+---+\n`;
+
+      expect(printBoard(board)).toEqual(boardString);
     });
   });
 });
