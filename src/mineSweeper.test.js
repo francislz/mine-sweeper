@@ -303,5 +303,23 @@ describe('Bots should be able to play the game', () => {
 
       expect(printBoard(board)).toEqual(boardString);
     });
+
+    it('should display the board with cleared squares on the screen', () => {
+      const squareToClear = { row: 2, column: 0 };
+      const bombs = [[0, 2]];
+      const board = addBombsToBoard(bombs, 3);
+
+      const clearedBoard = recursivelyClearEmptySquares(board, squareToClear);
+
+      let boardString = `+---+---+---+\n`;
+      boardString += `| _ | 1 |   |\n`;
+      boardString += `+---+---+---+\n`;
+      boardString += `| _ | 1 | 1 |\n`;
+      boardString += `+---+---+---+\n`;
+      boardString += `| _ | _ | _ |\n`;
+      boardString += `+---+---+---+\n`;
+
+      expect(printBoard(clearedBoard)).toEqual(boardString);
+    });
   });
 });
